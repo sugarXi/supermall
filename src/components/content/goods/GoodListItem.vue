@@ -1,6 +1,6 @@
 <template>
-  <div class="goods-item">
-    <img :src="goodsItem.show.img" alt="" @load="imgLoad">
+  <div class="goods-item" @click="itemClick">
+    <img v-lazy="showImage" alt="" @load="imgLoad">
     <div class="goods-info">
       <p>{{goodsItem.title}}</p>
       <span class="price">{{goodsItem.price}}</span>
@@ -21,10 +21,33 @@ props:{
     }
   }
 },
+computed: {
+  showImage(){
+
+    return this.goodsItem.image || this.goodsItem.show.img
+  }
+},
 methods: {
   imgLoad(){
-   // console.log(this.$bus);
+   // 事件总线
+   //路由判断事件
     this.$bus.$emit('itemImgLoad')
+    //方法1 路由判断组件刷新是否要通知home组件
+    // if(this.$route.path.indexOf('/home')){
+    //   this.$bus.$emit('homeItemImgLoad')
+    // }else if(this.$route.path.indexOf('/detail')){
+    //    this.$bus.$emit('detailItemImgLoad')
+    // }
+  },
+  itemClick(){
+    // console.log('跳转到详情页');
+    this.$router.push('/detail/'+ this.goodsItem.iid)
+    // this.$router.push({
+    //   path:"/detail",
+    //   query:{
+
+    //   }
+    // })
   }
 },
 }

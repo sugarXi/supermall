@@ -45,6 +45,7 @@ import BackTop from 'components/content/backTop/BackTop'
 
 import { getHomeMultisata, getHomeGoods } from "network/home";
 import {debounce} from 'common/utils'
+import {itemListenerMixin,backTopMixin} from 'common/mixin'
 export default {
   name: "Home",
   components: {
@@ -56,8 +57,9 @@ export default {
     NavBar,
     TabControl,
     Scroll,
-    BackTop
+    
   },
+  mixins:[itemListenerMixin,backTopMixin],
   data() {
     return {
       // result:null
@@ -69,10 +71,10 @@ export default {
         sell: { page: 0, list: [] },
       },
       currentType: "pop",
-      isShowBackTop:false,
       tabOffsetTop:0,
       isTabFixed:false,
       saveY:0,
+      
 
     };
   },
@@ -91,15 +93,6 @@ export default {
     
   },
   mounted() {
-    //3监听item图片加载是否完成
-    const refresh= debounce(this.$refs.scroll.refresh,200)
-    this.$bus.$on('itemImgLoad',()=>{
-    refresh()
-      // this.$refs.scroll.refresh()
-        // console.log('--------itemImgLoad');
-    })
-    //获取tabControl的offsetTop距离
-    // this.tabOffsetTop=this.$refs.tabControl.$el
    
   },
  
@@ -113,8 +106,10 @@ export default {
       this.$refs.scroll.refresh()
   },
   deactivated() {
-  
+  //1 保存y值
  this.saveY=this.$refs.scroll.getScrollY()
+ //2  取消全局事件的监听 离开home组件 就不用再刷新
+ this.$bus.$off('itemImgLoad',this.itemImgListener)
   },
   methods: {
     /**
@@ -194,6 +189,7 @@ export default {
   /* padding-top: 44px; */
   /* height: 100vh;
   position: relative; */
+  background-color: #fff;
 }
 .home-nav {
   width: 100%;

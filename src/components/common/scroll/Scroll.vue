@@ -1,5 +1,5 @@
 <template>
-<div class="wrapper" ref='wrapper'>
+<div ref='wrapper' class="wrapper">
   <div class="content">
    <slot></slot>
   </div>
@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import BScroll, { PullUpLoad } from 'better-scroll'
+import BScroll from 'better-scroll'
 export default {
 name:'Scroll',
 props:{
@@ -18,7 +18,7 @@ props:{
   },
   pullUpLoad:{
      type:Boolean,
-     default:true
+     default:false
   }
 },
 data() {
@@ -71,7 +71,7 @@ methods: {
   },
   //离开前滚动的y坐标
   getScrollY(){
-  console.log(this.bs);
+  // console.log(this.bs);
    return this.bs ? this.bs.y :0
   }
 },
