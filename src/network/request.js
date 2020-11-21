@@ -5,7 +5,7 @@ export function request(config) {
     //创建axios的实例
     const instance1=axios.create({
         baseURL:'http://152.136.185.210:8000/api/w6',
-        timeout:8000
+        timeout:80000
       })
     //axios的拦截器  全局拦截axios.interceptors
     //请求拦截

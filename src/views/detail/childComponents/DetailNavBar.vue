@@ -1,9 +1,9 @@
 <template>
-  <div>
+  <div class="detail-nav-bar">
     <nav-bar>
       <div slot="center" class="title">
         <div slot="left" class="back" @click="backClick">
-          <img src="~assets/img/common/back.svg" alt="">
+          <img src="~assets/img/common/back.svg" alt="" >
         </div>
         <div class="titleItem"
          v-for="(item,index) in titles"
@@ -42,9 +42,12 @@ methods: {
   }
 },
 }
-</script>
+</script >
 
 <style scoped>
+.detail-nav-bar{
+background-color: #fff;
+}
 .title{
  
   display: flex;

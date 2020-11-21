@@ -93,7 +93,7 @@ methods: {
   display: flex;
   align-items: center;
   margin-left: 10px;
-  width: 60px;
+  width: 66px;
 }
 .all-check{
   width: 20px;

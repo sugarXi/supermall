@@ -1,265 +1,153 @@
 <template>
-<div class="wapper" ref='aaa'>
- 
-<ul class="content">
-   <button @click="btnClick">按钮</button>
-  <li>lb1</li>
-  <li>lb2</li>
-  <li>lb3</li>
-  <li>lb4</li>
-  <li>lb5</li>
-  <li>lb6</li>
-  <li>lb7</li>
-  <li>lb8</li>
-  <li>lb9</li>
-  <li>lb10</li>
-  <li>lb11</li>
-  <li>lb12</li>
-  <li>lb13</li>
-  <li>lb14</li>
-  <li>lb15</li>
-  <li>lb16</li>
-  <li>lb17</li>
-  <li>lb18</li>
-  <li>lb19</li>
-  <li>lb20</li>
-  <li>lb21</li>
-  <li>lb22</li>
-  <li>lb23</li>
-  <li>lb24</li>
-  <li>lb25</li>
-  <li>lb26</li>
-  <li>lb27</li>
-  <li>lb28</li>
-  <li>lb29</li>
-  <li>lb30</li>
-  <li>lb31</li>
-  <li>lb32</li>
-  <li>lb33</li>
-  <li>lb34</li>
-  <li>lb35</li>
-  <li>lb36</li>
-  <li>lb37</li>
-  <li>lb38</li>
-  <li>lb39</li>
-  <li>lb40</li>
-  <li>lb41</li>
-  <li>lb42</li>
-  <li>lb43</li>
-  <li>lb44</li>
-  <li>lb45</li>
-  <li>lb46</li>
-  <li>lb47</li>
-  <li>lb48</li>
-  <li>lb49</li>
-  <li>lb50</li>
-  <li>lb51</li>
-  <li>lb52</li>
-  <li>lb53</li>
-  <li>lb54</li>
-  <li>lb55</li>
-  <li>lb56</li>
-  <li>lb57</li>
-  <li>lb58</li>
-  <li>lb59</li>
-  <li>lb60</li>
-  <li>lb61</li>
-  <li>lb62</li>
-  <li>lb63</li>
-  <li>lb64</li>
-  <li>lb65</li>
-  <li>lb66</li>
-  <li>lb67</li>
-  <li>lb68</li>
-  <li>lb69</li>
-  <li>lb70</li>
-  <li>lb71</li>
-  <li>lb72</li>
-  <li>lb73</li>
-  <li>lb74</li>
-  <li>lb75</li>
-  <li>lb76</li>
-  <li>lb77</li>
-  <li>lb78</li>
-  <li>lb79</li>
-  <li>lb80</li>
-  <li>lb81</li>
-  <li>lb82</li>
-  <li>lb83</li>
-  <li>lb84</li>
-  <li>lb85</li>
-  <li>lb86</li>
-  <li>lb87</li>
-  <li>lb88</li>
-  <li>lb89</li>
-  <li>lb90</li>
-  <li>lb91</li>
-  <li>lb92</li>
-  <li>lb93</li>
-  <li>lb94</li>
-  <li>lb95</li>
-  <li>lb96</li>
-  <li>lb97</li>
-  <li>lb98</li>
-  <li>lb99</li>
-  <li>lb100</li>
+<div id="category">
+ <nav-bar class="nav-bar">
+    <div slot="center">商品分类</div>
+  </nav-bar>
+  <div class="content">
+<tab-menu :categories='categories'  @selectItem="selectItem">></tab-menu>
+<scroll id="tab-content" ref="scroll" >
+  <div>
+<tab-content-category
+:subcategories ='showSubcategory'></tab-content-category>
+<tab-control ref="tabControl" :titles="['综合', '新品', '销量']"
+      @tabClick="tabClick" ></tab-control>
+      <tab-content-detail :categoryDetail='showCategoryDetail'></tab-content-detail>
+  </div>
 
-  <li>lb1</li>
-  <li>lb2</li>
-  <li>lb3</li>
-  <li>lb4</li>
-  <li>lb5</li>
-  <li>lb6</li>
-  <li>lb7</li>
-  <li>lb8</li>
-  <li>lb9</li>
-  <li>lb10</li>
-  <li>lb11</li>
-  <li>lb12</li>
-  <li>lb13</li>
-  <li>lb14</li>
-  <li>lb15</li>
-  <li>lb16</li>
-  <li>lb17</li>
-  <li>lb18</li>
-  <li>lb19</li>
-  <li>lb20</li>
-  <li>lb21</li>
-  <li>lb22</li>
-  <li>lb23</li>
-  <li>lb24</li>
-  <li>lb25</li>
-  <li>lb26</li>
-  <li>lb27</li>
-  <li>lb28</li>
-  <li>lb29</li>
-  <li>lb30</li>
-  <li>lb31</li>
-  <li>lb32</li>
-  <li>lb33</li>
-  <li>lb34</li>
-  <li>lb35</li>
-  <li>lb36</li>
-  <li>lb37</li>
-  <li>lb38</li>
-  <li>lb39</li>
-  <li>lb40</li>
-  <li>lb41</li>
-  <li>lb42</li>
-  <li>lb43</li>
-  <li>lb44</li>
-  <li>lb45</li>
-  <li>lb46</li>
-  <li>lb47</li>
-  <li>lb48</li>
-  <li>lb49</li>
-  <li>lb50</li>
-  <li>lb51</li>
-  <li>lb52</li>
-  <li>lb53</li>
-  <li>lb54</li>
-  <li>lb55</li>
-  <li>lb56</li>
-  <li>lb57</li>
-  <li>lb58</li>
-  <li>lb59</li>
-  <li>lb60</li>
-  <li>lb61</li>
-  <li>lb62</li>
-  <li>lb63</li>
-  <li>lb64</li>
-  <li>lb65</li>
-  <li>lb66</li>
-  <li>lb67</li>
-  <li>lb68</li>
-  <li>lb69</li>
-  <li>lb70</li>
-  <li>lb71</li>
-  <li>lb72</li>
-  <li>lb73</li>
-  <li>lb74</li>
-  <li>lb75</li>
-  <li>lb76</li>
-  <li>lb77</li>
-  <li>lb78</li>
-  <li>lb79</li>
-  <li>lb80</li>
-  <li>lb81</li>
-  <li>lb82</li>
-  <li>lb83</li>
-  <li>lb84</li>
-  <li>lb85</li>
-  <li>lb86</li>
-  <li>lb87</li>
-  <li>lb88</li>
-  <li>lb89</li>
-  <li>lb90</li>
-  <li>lb91</li>
-  <li>lb92</li>
-  <li>lb93</li>
-  <li>lb94</li>
-  <li>lb95</li>
-  <li>lb96</li>
-  <li>lb97</li>
-  <li>lb98</li>
-  <li>lb99</li>
-  <li>lb100</li>
-
-</ul>
+</scroll>
+  </div>
 </div>
-
-
-
-
-
+ 
 </template>
 
 <script>
-import BScroll from 'better-scroll'
+
+import NavBar from 'components/common/navbar/NavBar'
+import TabMenu from './childComps/TabMenu'
+ import Scroll from 'components/common/scroll/Scroll'
+import TabContentCategory from './childComps/TabContentCategory'
+import TabControl from "components/content/tabControl/TabControl";
+import  TabContentDetail from './childComps/TabContentDetail';
+
+import {getCategory,getSubcategory,getCategoryDetail} from 'network/category'
+import {POP, SELL, NEW}  from 'common/const'
+import {tabControlMixin} from 'common/mixin'
 export default {
+ 
 name:'Category',
+components:{
+  NavBar,
+  TabMenu,
+  Scroll,
+  TabContentCategory,
+  TabControl,
+  TabContentDetail,
+
+},
+mixins:[tabControlMixin],
 data() {
   return {
-    bs:null
+    categories:[],
+    currentIndex:-1,
+    categoryData:{}
   }
 },
-methods: {
-  btnClick(){
- console.log('btnClick');
+activated() {
+this.$refs.scroll.refresh()
+},
+computed:{
+  showSubcategory(){
+if(this.currentIndex ===-1) return{}
+return this.categoryData[this.currentIndex].subcategories
+  },
+  showCategoryDetail(){
+    if (this.currentIndex ==-1) return []
+    return this.categoryData[this.currentIndex].categoryDetail[this.currentType]
   }
- 
 },
 created() {
-  // console.log(document.querySelector('.wapper'));
-//  this.bs= new  BScroll(document.querySelector('.wapper'),{
-
-//   })
+  // 1.请求分类数据
+      this._getCategory()
 },
-mounted() {
-  // console.log(document.querySelector('.wapper'));
-  this.bs=new BScroll(document.querySelector('.wapper'),{
-    probeType:3,
-    pullUpLoad:true,
-    // click:true
-
-  })
-  this.bs.on('scroll',(position)=>{
-    //滚动条位置
-    // console.log(position);
-  })
-  this.bs.on('pullingUp',()=>{
-    console.log('上拉加载更多');
-  })
+methods: {
+  selectItem(index){
+   this._getSubcategories(index)
+  },
+  _getCategory(){
+ 
+    getCategory().then(
+      res=>{
+        //1 获取分类数据
+        this.categories = res.data.category.list
+        //2 初始化 每个类别的子数据
+        for (let i = 0; i < this.categories.length; i++) {
+          this.categoryData[i]={
+             subcategories: {},
+              categoryDetail: {
+                'pop': [],
+                'new': [],
+                'sell': []
+              }
+          }
+          
+        }
+        //3 请求第一个分类数据
+        this._getSubcategories(0)
+      }
+    )
+  },
+  _getSubcategories(index){
+    this.currentIndex =index;
+    const mailKey=this.categories[index].maitKey;
+    getSubcategory(mailKey).then(
+      res=>{
+        this.categoryData[index].subcategories=res.data
+        this.categoryData={...this.categoryData}
+        this._getCategoryDetail(POP)
+        this._getCategoryDetail(SELL)
+        this._getCategoryDetail(NEW)
+      }
+    )
+  },
+  _getCategoryDetail(type){
+    //1 获取请求的miniWallKey
+    const miniWallKey = this.categories[this.currentIndex].miniWallkey
+    
+   //2 发送请求 传入 miniWallKey和type
+    getCategoryDetail(miniWallKey,type).then(
+      res=>{
+        //3 获取数据进行保存
+        this.categoryData[this.currentIndex].categoryDetail[type]=res
+        this.categoryData={...this.categoryData}
+      }
+    )
+  },
   
 },
 }
-</script>
+</script scoped>
 
-<style>
-.wapper{
-  height:150px ;
-  background-color: red;
+<style scoped>
+#category{
+  height: calc(100% - 49px);
   overflow: hidden;
 }
+.nav-bar{
+background-color: var(--color-tint);
+color: #fff;
+}
+.content{
+  position: absolute;
+  left: 0;
+right: 0;
+top: 44px;
+bottom: 49px;
+display: flex;
+}
+#tab-content{
+height: 100%;
+flex: 1;
+overflow: hidden;
 
+}
 </style>
